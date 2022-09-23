@@ -13,6 +13,6 @@ jobs:
       - uses: actions/add-to-project@v0.3.0
         with:
           project-url: https://github.com/orgs/Randev-ar/projects/24
-          github-token: ${{ secrets.GH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           labeled: bug, needs-triage
           label-operator: OR
