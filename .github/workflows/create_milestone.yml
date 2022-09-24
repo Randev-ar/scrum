@@ -11,10 +11,11 @@ on:
 
 jobs:
   createMilestone:
+    if: github.event.issue.labels[0].name == 'milestone'
     runs-on: ubuntu-latest
     steps:
       - name: Milestone Actions
-        if: github.event.issue.labels[0].name == 'milestone'
+        id: createmilestone
         uses: kyoyadmoon/milestone-actions@v1.0.0
         with:
           title: "${{ github.event.issue.title }}"
@@ -24,10 +25,10 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           
       - name: echo Milestone number
-        run: echo ${{ steps.create-milestone.outputs.number }}
+        run: echo ${{ steps.createmilestone.outputs.number }}
 
       - name: echo Milestone id
-        run: echo ${{ steps.create-milestone.outputs.id }}
+        run: echo ${{ steps.createmilestone.outputs.id }}
 
       - name: echo Milestone html_url
-        run: echo ${{ steps.create-milestone.outputs.html_url }}
+        run: echo ${{ steps.createmilestone.outputs.html_url }}
