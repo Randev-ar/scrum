@@ -1,7 +1,7 @@
 ---
 name: User Story - Milestone
 about: Suggest an idea for this project
-title: "[US/M]"
+title: "[US]"
 labels: milestone
 assignees: ''
 
