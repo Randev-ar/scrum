@@ -1,0 +1,20 @@
+name: Create a new Milestone
+
+on:
+  issues:
+    types: [opened]
+
+  workflow_dispatch:
+
+jobs:
+  newMilestone:
+    if: github.event.issue.labels[0] == 'milestone'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create Milestone
+        uses: WyriHaximus/github-action-create-milestone@v1.1.0
+        with:
+          title: github.event.issue.
+          description: github.event.issue.body
