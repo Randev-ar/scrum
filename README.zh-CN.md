@@ -1,3 +1,3 @@
 # Scrum 开发
 
-Proyecto para practicar y adaptar scrum
+练习和适应 Scrum 的项目
