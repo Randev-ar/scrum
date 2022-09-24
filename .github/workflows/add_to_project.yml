@@ -13,7 +13,7 @@ jobs:
       - uses: actions/add-to-project@v0.3.0
         with:
           # TEAM_PROJECT_URL -> Repository Secret. Es la URL del tablero de Github del equipo
-          project-url: ${{ TEAM_PROJECT_URL }} 
+          project-url: ${{ secrets.TEAM_PROJECT_URL }} 
           # ADD_TO_PROJECT_PAT -> Token de generación. 
           # https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
