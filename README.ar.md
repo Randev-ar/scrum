@@ -1,3 +1,3 @@
-# تطوير سكروم
+# scrum-develop
 
-Proyecto para practicar y adaptar scrum
+مشروع لممارسة سكرم وتكييفه
