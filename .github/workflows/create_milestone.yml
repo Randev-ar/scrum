@@ -9,6 +9,7 @@ jobs:
     if: github.event.issue.labels[0].name == 'milestone'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Create the milestone
         uses: julbme/gh-action-manage-milestone@v1
         with:
