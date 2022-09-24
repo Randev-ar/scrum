@@ -16,3 +16,4 @@ Tambien se podra encontrar documentacion referida a la metodologia dentro de la 
 
 ## Links de interes
 [GitHub Actions Tutorial](https://www.youtube.com/watch?v=-hVG9z0fCac)
+[GitHub Actions como un Pro](https://www.youtube.com/watch?v=9t9j-5NWRAw)
