@@ -1,7 +1,7 @@
 # SCRUM 开发
 
--   Autor: Facundo Toffolo Pasquini [发出undo TP@然地v.com.AR](mailto:facundotp@randev.com.ar)
--   日期：2022 年 9 月 23 日
+-   作者：法昆多·托弗洛·帕斯奎尼[发出undo TP@然地v.com.AR](mailto:facundotp@randev.com.ar)
+-   日期：09/23/2022
 -   最后更新：2022 年 9 月 24 日
 
 ## 描述
