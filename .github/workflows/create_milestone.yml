@@ -5,30 +5,15 @@ on:
     types: [opened]
 
 jobs:
-
-  generate:
+  newMilestone:
     if: github.event.issue.labels[0].name == 'milestone'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Create the milestone
+        uses: julbme/gh-action-manage-milestone@v1
         with:
-          node-version: '10.x'
-
-      - name: 'Create new milestone'
-        id: create-milestone
-        uses: kyoyadmoon/milestone-actions@v1.0.0
-        with:
-          title: "${github.event.issue.title}"
-          description: ${{ github.event.issue.body }}
+          title: github.event.issue.title
+          state: open
+          description: github.event.issue.body
         env:
-          GITHUB_TOKEN: "${{ secrets.RANDEV_SCRUM_APP_PEM }}"
-
-      - name: echo Milestone number
-        run: echo ${{ steps.create-milestone.outputs.number }}
-
-      - name: echo Milestone id
-        run: echo ${{ steps.create-milestone.outputs.id }}
-
-      - name: echo Milestone html_url
-        run: echo ${{ steps.create-milestone.outputs.html_url }}
+          GITHUB_TOKEN: ${{ secrets.RANDEV_SCRUM_APP_PEM }}
