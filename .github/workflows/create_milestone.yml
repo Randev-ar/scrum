@@ -1,8 +1,13 @@
+# Este worflow creara una nueva milestone cuando se detecte una nueva issue creada con 
+# el label de milestone. El objetivo es manejar las milestones como Historias de Usuario
+# dentro del marco de trabajo de SCRUM y poder gestionarlo facilmente desde un Project de 
+# GitHub como el siguiente: https://github.com/orgs/Randev-ar/projects/24/views/2
+
 name: Create a new Milestone
 
 on:
   issues:
-    types: [opened, labeled]
+    types: [opened]
 
 jobs:
   createMilestone:
@@ -13,10 +18,8 @@ jobs:
         uses: kyoyadmoon/milestone-actions@v1.0.0
         with:
           title: "${{ github.event.issue.title }}"
-          # An optional description for the milestone
-          description: "${{ github.event.issue.body }}"
-          # An optional timestamp for due date of the milestone
-          # due_on: # optional
+          description: "${{ github.event.issue.body }}" # An optional description
+          # due_on: # An optional timestamp for due date of the milestone
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           
