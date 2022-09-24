@@ -1,4 +1,4 @@
-name: Add bugs to bugs project
+name: Add bug to Project
 
 on:
   issues:
@@ -13,6 +13,8 @@ jobs:
       - uses: actions/add-to-project@v0.3.0
         with:
           project-url: https://github.com/orgs/Randev-ar/projects/24
-          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          # ADD_TO_PROJECT_PAT -> Token de generación. 
+          # https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+          github-token: ${{ secrets.RANDEV_SCRUM_APP_CLIENT_SECRET }}
           labeled: bug, needs-triage
           label-operator: OR
