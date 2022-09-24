@@ -3,7 +3,7 @@ name: Translate README
 on:
   push:
     paths:
-      - 'docs/**'
+      - 'README.md'
 jobs:
   build:
     runs-on: ubuntu-latest
