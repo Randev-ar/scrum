@@ -12,10 +12,19 @@ jobs:
         if: github.event.issue.labels[0].name == 'milestone'
         uses: kyoyadmoon/milestone-actions@v1.0.0
         with:
-          title: github.event.issue.title
+          title: "yrty"
           # An optional description for the milestone
           # description: # optional
           # An optional timestamp for due date of the milestone
           # due_on: # optional
         env:
-          GITHUB_TOKEN: "${{ secrets.RANDEV_SCRUM_APP_PEM }}"
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          
+      - name: echo Milestone number
+        run: echo ${{ steps.create-milestone.outputs.number }}
+
+      - name: echo Milestone id
+        run: echo ${{ steps.create-milestone.outputs.id }}
+
+      - name: echo Milestone html_url
+        run: echo ${{ steps.create-milestone.outputs.html_url }}
