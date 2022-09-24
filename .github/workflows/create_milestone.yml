@@ -15,6 +15,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Create Milestone
         uses: WyriHaximus/github-action-create-milestone@v1.1.0
+        env:
+          GITHUB_TOKEN: "${{ secrets.RANDEV_SCRUM_APP_PEM }}"
         with:
           title: github.event.issue.
           description: github.event.issue.body
