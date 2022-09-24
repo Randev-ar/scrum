@@ -1,4 +1,4 @@
-name: Add bug to Project
+name: Add issues to Team Project
 
 on:
   issues:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   add-to-project:
-    name: Add issue to project
+    name: Adding Issue to Project
     runs-on: ubuntu-latest
     steps:
       - uses: actions/add-to-project@v0.3.0
@@ -16,5 +16,5 @@ jobs:
           # ADD_TO_PROJECT_PAT -> Token de generación. 
           # https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
-          labeled: bug, needs-triage
-          label-operator: OR
+          # labeled: bug, needs-triage
+          # label-operator: OR
