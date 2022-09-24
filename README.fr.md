@@ -1,3 +1,3 @@
 # scrum-développer
 
-Projet pour pratiquer et adapter scrum
+Proyecto para practicar y adaptar scrum
