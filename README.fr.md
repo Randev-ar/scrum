@@ -1,4 +1,4 @@
-# SCRUM DEVELOP
+# DÉVELOPPEMENT SCRUM
 
 -   Auteur : Facundo Toffolo Pasquini[facundotp@randev.com.ar](mailto:facundotp@randev.com.ar)
 -   Date : 23/09/2022
@@ -11,6 +11,6 @@ D'autres buts sont pour sa formation.
 
 Il inclura des flux de travail configurés pour automatiser certaines actions. Ils seront dans le dossier`.github/workflows`qui est à la base du projet.
 
-Vous pouvez également trouver de la documentation faisant référence à la méthodologie à l'intérieur du dossier`docs/`et sur le projet Wiki
+Tambien se podra encontrar documentacion referida a la metodologia dentro de la carpeta `docs/`et sur le projet Wiki
 
 ## Links de interes
