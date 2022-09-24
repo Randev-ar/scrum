@@ -1,3 +1,3 @@
-# स्क्रम-डेवलप
+# scrum-develop
 
-स्क्रम का अभ्यास और अनुकूलन करने के लिए परियोजना
+Proyecto para practicar y adaptar scrum
