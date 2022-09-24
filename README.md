@@ -1,4 +1,4 @@
-# SCRUM DEVELOP
+# SCRUM
 
 - Autor: Facundo Toffolo Pasquini <facundotp@randev.com.ar>
 - Fecha: 23/09/2022
@@ -14,6 +14,6 @@ En el mismo se incluiran workflows configurados para automatizar algunas accione
 
 Tambien se podra encontrar documentacion referida a la metodologia dentro de la carpeta `docs/` y en la Wiki del proyecto
 
-## Links de interes
+## Links de interés
 - [GitHub Actions Tutorial](https://www.youtube.com/watch?v=-hVG9z0fCac)
 - [GitHub Actions como un Pro](https://www.youtube.com/watch?v=9t9j-5NWRAw)
