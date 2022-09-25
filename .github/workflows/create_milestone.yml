@@ -33,8 +33,9 @@ jobs:
       - name: echo Milestone html_url
         run: echo ${{ steps.createmilestone.outputs.html_url }}
   
-  add:
+  addMilestoneToIssueCreated:
     if: github.event.issue.labels[0].name == 'milestone'
+    needs: createMilestone
     runs-on: ubuntu-latest
     steps:
       - uses: guguducken/milestone-add-action@v0.0.1
