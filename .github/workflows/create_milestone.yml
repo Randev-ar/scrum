@@ -24,6 +24,16 @@ jobs:
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           
+      - name: Set Milestone to Issue Milestone
+      - uses: guguducken/milestone-add-action@v0.0.1
+        with:
+          action-token: ${{ secrets.ACTION_TOKEN}}
+          co-milestones: >
+            {
+              "[${{ github.event.issue.title }}]":"v0.0.1",
+              "[${{ github.event.issue.title }}]":"v0.0.1"
+            }
+          
       - name: echo Milestone number
         run: echo ${{ steps.createmilestone.outputs.number }}
 
@@ -32,3 +42,6 @@ jobs:
 
       - name: echo Milestone html_url
         run: echo ${{ steps.createmilestone.outputs.html_url }}
+
+# Asignar issue de milestone al milestone creado
+# Crear las tareas https://github.com/marketplace/actions/issue-creator
