@@ -33,8 +33,9 @@ jobs:
       - name: echo Milestone html_url
         run: echo ${{ steps.createmilestone.outputs.html_url }}
   
-  addMilestoneToIssueCreated:
-    if: github.event.issue.labels[0].name == 'milestone'
+  addMilestoneToIssueCreated: 
+    # Asignar issue de milestone al milestone creado
+    if: contains(github.event.issue.labels.*.name, 'milestone')
     needs: createMilestone
     runs-on: ubuntu-latest
     steps:
@@ -46,5 +47,4 @@ jobs:
               "${{ github.event.issue.title }}":"${{ github.event.issue.title }}"
             }
 
-# Asignar issue de milestone al milestone creado
 # Crear las tareas https://github.com/marketplace/actions/issue-creator
