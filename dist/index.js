@@ -9674,15 +9674,17 @@ async function run (){
     
     const { context = {} } = github
     const { issue } = context.payload
-    /* await octokit.issues.createComment({
+    const { body } = issue
+    const tasks = body.split('_**Tareas**_')[1]
+    const taskList = tasks.split("\r\n").filter(item => item)
+    console.log( taskList );
+
+
+    await octokit.issues.createComment({
         ...context.repo,
         issue_number: issue.number,
         body: 'Updating Tasks'
-    }) */
-    const { body } = issue
-    const tasks = body.split('_**Tareas**_')[1]
-    const taskList = tasks.split("\r\n")
-    console.log( taskList );
+    })
 }
 
 run()
