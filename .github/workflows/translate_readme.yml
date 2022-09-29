@@ -1,5 +1,5 @@
 # ISO Langusge Codes: https://cloud.google.com/translate/docs/languages  
-name: Translate README
+name: 💬 Translate Readme
 
 on:
   push:
@@ -7,7 +7,6 @@ on:
       - 'README.md'
 jobs:
   translating:
-    name: 💬 Translate Readme
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
