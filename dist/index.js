@@ -9674,11 +9674,12 @@ async function run (){
     
     const { context = {} } = github
     const { issue } = context.payload
-    await octokit.issues.createComment({
+    /* await octokit.issues.createComment({
         ...context.repo,
         issue_number: issue.number,
         body: 'Updating Tasks'
-    })
+    }) */
+    console.log( issue );
 }
 
 run()
