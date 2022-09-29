@@ -9679,7 +9679,10 @@ async function run (){
         issue_number: issue.number,
         body: 'Updating Tasks'
     }) */
-    console.log( issue );
+    const { body } = issue
+    const tasks = body.split('_**Tareas**_')
+    const taskList = tasks.split("\r\n")
+    console.log( taskList );
 }
 
 run()
