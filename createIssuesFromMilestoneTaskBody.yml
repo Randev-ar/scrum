@@ -1,0 +1,12 @@
+name: 'Create Issue-Task'
+description: 'Create Issue - Task from Task list in a Issue - Millestone Body'
+author: 'Facundo Toffolo Pasquini'
+
+inputs: 
+  GITHUB_TOKEN:
+    description: 'GitHub token'
+    required: true
+    
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
