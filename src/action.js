@@ -1,9 +1,8 @@
-const core = require("@actions/core")
-const github = require("@actions/github")
+import * as github from '@actions/github';
+import * as core from '@actions/core';
 
 async function run (){
     const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
-    const octokit = github.getOctokit(GITHUB_TOKEN)
     
     const { context = {} } = github
     const { issue } = context.payload
@@ -13,11 +12,23 @@ async function run (){
     console.log( taskList );
 
 
+    const client = github.getOctokit(GITHUB_TOKEN)
+
     await octokit.issues.createComment({
         ...context.repo,
         issue_number: issue.number,
         body: 'Updating Tasks'
     })
+    
+    /* await client.issues.create({
+        owner: owner,
+        repo: repo,
+        title: title,
+        body: body,
+        labels: labels,
+        milestone: milestone ? milestone : undefined,
+        assignees: assignees
+      }); */
 }
 
 run()
