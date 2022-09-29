@@ -14,7 +14,7 @@ async function run (){
 
     const client = github.getOctokit(GITHUB_TOKEN)
 
-    await octokit.issues.createComment({
+    await client.issues.createComment({
         ...context.repo,
         issue_number: issue.number,
         body: 'Updating Tasks'
