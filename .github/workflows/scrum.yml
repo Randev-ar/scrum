@@ -14,19 +14,13 @@ jobs:
     name: 📝 Adding Issue to Project
     runs-on: ubuntu-latest
     steps:
-      - name: Generate token
-        id: generate_token
-        uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
-        with:
-          app_id: ${{ secrets.RANDEV_SCRUM_APP_ID }}
-          private_key: ${{ secrets.RANDEV_SCRUM_APP_PEM }}
       - uses: actions/add-to-project@v0.3.0
         with:
           # TEAM_PROJECT_URL -> Repository Secret. Es la URL del tablero de Github del equipo
           project-url: ${{ secrets.TEAM_PROJECT_URL }} 
           # ADD_TO_PROJECT_PAT -> Token de generación. 
           # https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
-          github-token: ${{ steps.generate_token.outputs.token }}
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: impedimento, bloqueo
           label-operator: NOT
           
@@ -68,5 +62,4 @@ jobs:
             {
               "${{ github.event.issue.title }}":"${{ github.event.issue.title }}"
             }
-
 # Crear las tareas https://github.com/marketplace/actions/issue-creator
