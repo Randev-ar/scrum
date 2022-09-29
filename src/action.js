@@ -14,8 +14,7 @@ async function run (){
     }) */
     const { body } = issue
     const tasks = body.split('_**Tareas**_')
-    const taskList = tasks.split("\r\n")
-    console.log( taskList );
+    console.log( tasks );
 }
 
 run()
