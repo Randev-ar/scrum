@@ -3,7 +3,7 @@
 # dentro del marco de trabajo de SCRUM y poder gestionarlo facilmente desde un Project de 
 # GitHub como el siguiente: https://github.com/orgs/Randev-ar/projects/24/views/2
 
-name: SCRUM PROYECTS TEAMS
+name: 🔁 SCRUM PROYECT
 
 on:
   issues:
@@ -11,7 +11,7 @@ on:
 
 jobs:
   addToProject:
-    name: Adding Issue to Project
+    name: 📝 Adding Issue to Project
     runs-on: ubuntu-latest
     steps:
       - uses: actions/add-to-project@v0.3.0
@@ -25,6 +25,7 @@ jobs:
           label-operator: NOT
           
   createMilestone:
+    name: 🗄 Creating User Story
     if: github.event.issue.labels[0].name == 'milestone'
     runs-on: ubuntu-latest
     steps:
@@ -49,6 +50,7 @@ jobs:
   
   addMilestoneToIssueCreated: 
     # Asignar issue de milestone al milestone creado
+    name: ✔ Add issue to UserStory
     if: contains(github.event.issue.labels.*.name, 'milestone')
     needs: createMilestone
     runs-on: ubuntu-latest
@@ -60,5 +62,4 @@ jobs:
             {
               "${{ github.event.issue.title }}":"${{ github.event.issue.title }}"
             }
-
 # Crear las tareas https://github.com/marketplace/actions/issue-creator

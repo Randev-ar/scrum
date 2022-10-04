@@ -1,5 +1,5 @@
 # ISO Langusge Codes: https://cloud.google.com/translate/docs/languages  
-name: Translate README
+name: 💬 Translate Readme
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: Adding README - English
+      - name: 🇬🇧 English
         uses: dephraiim/translate-readme@main
         with:
           LANG: en

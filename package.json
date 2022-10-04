@@ -1,0 +1,29 @@
+{
+  "name": "scrum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "ncc build src/action.js -o dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Randev-ar/scrum.git"
+  },
+  "author": "Facndo Toffolo Pasquini <facundotp@randev.com.ar>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Randev-ar/scrum/issues"
+  },
+  "homepage": "https://github.com/Randev-ar/scrum#readme",
+  "dependencies": {
+    "@actions/core": "^1.9.1",
+    "@actions/github": "^5.1.0",
+    "@vercel/ncc": "^0.34.0"
+  }
+}
