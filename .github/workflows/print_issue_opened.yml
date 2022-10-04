@@ -2,8 +2,13 @@ name: Print event
 
 # Controls when the workflow will run
 on:
-  issues:
-    type: [cross-referenced]
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+      - develop
 
 jobs:
   print:
