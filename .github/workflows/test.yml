@@ -9,5 +9,5 @@ jobs:
     name: 🔁 SCRUM PROYECT
     uses: Randev-ar/gh-workflows/.github/workflows/scrum.yml@main
     secrets:
-      project-url: ${{ secrets.TEAM_PROJECT_URL }}
-      github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+      TEAM_PROJECT_URL: ${{ secrets.TEAM_PROJECT_URL }}
+      ADD_TO_PROJECT_PAT: ${{ secrets.ADD_TO_PROJECT_PAT }}
