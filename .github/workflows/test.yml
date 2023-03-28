@@ -6,7 +6,7 @@ on:
 
 jobs:
   scrum:
-    uses: https://github.com/Randev-ar/gh-workflows/blob/main/.github/workflows/scrum.yml
+    uses: https://github.com/Randev-ar/gh-workflows/blob/main/.github/workflows/scrum.yml@main
     with:
       project-url: ${{ secrets.TEAM_PROJECT_URL }}
       github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
