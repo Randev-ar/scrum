@@ -1,4 +1,4 @@
-name: 📝 Adding Issue to Project
+name: 📝 Adding to Project
 
 on:
   workflow_call:
@@ -11,8 +11,8 @@ on:
         required: true
 
 jobs:
-  addIssueToProject:
-    name: 📝 Adding Issue to Project
+  addToProject:
+    name: 📝 Adding to Project
     runs-on: ubuntu-latest
     steps:
       - uses: actions/add-to-project@v0.3.0

@@ -1,9 +1,14 @@
 name: 📝 Adding Pull Request to Project
 
 on:
-  pull_request:
-    types:
-      - opened
+  workflow_call:
+    secrets:
+      TEAM_PROJECT_URL:
+        description: "URL del tablero de Github del equipo"
+        required: true
+      ADD_TO_PROJECT_PAT:
+        description: "Token de generación"
+        required: true
 
 jobs:
   addPullRequestToProject:
