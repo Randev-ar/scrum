@@ -1,8 +1,8 @@
 ---
-name: Historia de Usuario - Milestone
+name: Historia de Usuario
 about: Nueva funcionalidad para el proyecto
 title: "[US]"
-labels: milestone
+labels: US
 assignees: ''
 
 ---
@@ -15,10 +15,12 @@ _**Criterios de aceptación**_
 - List
 - List
 
-__**Pre-Requisitos**__
+_**Pre-Requisitos**_
 - List
 - List
 
 _**Tareas**_
 - [ ] Check
 - [ ] Check
+
+_**Info Adicional**_

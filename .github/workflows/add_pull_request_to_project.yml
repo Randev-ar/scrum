@@ -1,0 +1,41 @@
+name: 📝 Adding Pull Request to Project
+
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  addPullRequestToProject:
+    name: 📝 Adding Pull Request to Project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v2
+
+      - name: Asociar Pull Request a Tablero
+        env:
+          TEAM_PROJECT_URL: ${{ secrets.TEAM_PROJECT_URL }}
+          ADD_TO_PROJECT_PAT: ${{ secrets.ADD_TO_PROJECT_PAT }}
+        run: |
+          # Obtener el número del Pull Request
+          PR_NUMBER=$(echo "${{ github.event.pull_request.url }}" | grep -oE "[0-9]+")
+
+          # Obtener la URL del proyecto
+          PROJECT_URL=$(curl -s "${TEAM_PROJECT_URL}" -H "Authorization: Bearer ${ADD_TO_PROJECT_PAT}" | jq -r '.url')
+
+          # Obtener todas las columnas del proyecto
+          COLUMNS=$(curl -s "${PROJECT_URL}/columns" -H "Authorization: Bearer ${ADD_TO_PROJECT_PAT}")
+
+          # Buscar el column_id por el nombre de la columna
+          COLUMN_NAME="👀 In review"
+          COLUMN_ID=$(echo "${COLUMNS}" | jq -r --arg COLUMN_NAME "${COLUMN_NAME}" '.[] | select(.name == $COLUMN_NAME) | .id')
+
+          # Verificar si se encontró la columna
+          if [ -z "${COLUMN_ID}" ]; then
+            echo "No se encontró la columna ${COLUMN_NAME}."
+            exit 1
+          fi
+
+          # Agregar la tarjeta del Pull Request a la columna 'In Review' del proyecto
+          curl -X POST "${PROJECT_URL}/columns/${COLUMN_ID}/cards" -H "Authorization: Bearer ${ADD_TO_PROJECT_PAT}" -d "{\"content_id\": ${PR_NUMBER}, \"content_type\": \"PullRequest\"}"

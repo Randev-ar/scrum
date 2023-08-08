@@ -1,0 +1,44 @@
+name: 🔁 SCRUM PROYECT
+
+on:
+  workflow_call:
+    secrets:
+      TEAM_PROJECT_URL:
+        description: "URL del tablero de Github del equipo"
+        required: true
+      ADD_TO_PROJECT_PAT:
+        description: "Token de generación"
+        required: true
+
+jobs:
+  addIssueToProject:
+    name: 📝 Adding Issue to Project
+    uses: ./.github/workflows/add_issue_to_project.yml
+    secrets:
+      TEAM_PROJECT_URL: ${{ secrets.TEAM_PROJECT_URL }}
+      ADD_TO_PROJECT_PAT: ${{ secrets.ADD_TO_PROJECT_PAT }}
+
+  createUserStory:
+    name: 🗄 Creating Epic
+    if: contains( github.event.issue.labels.*.name, 'milestone') || contains( github.event.issue.labels.*.name, 'US') || contains( github.event.issue.title, '[US]')
+    uses: ./.github/workflows/create_milestone_from_issue.yml
+    secrets:
+      TEAM_PROJECT_URL: ${{ secrets.TEAM_PROJECT_URL }}
+      ADD_TO_PROJECT_PAT: ${{ secrets.ADD_TO_PROJECT_PAT }}
+
+  addMilestoneToIssueCreated:
+    # Asignar issue de milestone al milestone creado
+    name: ✔ Add issue to Epic
+    if: contains(github.event.issue.labels.*.name, 'milestone')
+    needs: createUserStory
+    runs-on: ubuntu-latest
+    steps:
+      - uses: guguducken/milestone-add-action@v0.0.1
+        with:
+          action-token: ${{ secrets.ADD_TO_PROJECT_PAT}}
+          co-milestones: >
+            {
+              "${{ github.event.issue.title }}":"${{ github.event.issue.title }}"
+            }
+
+# Crear las tareas https://github.com/marketplace/actions/issue-creator

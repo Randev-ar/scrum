@@ -1,13 +1,13 @@
-name: 🔁 SCRUM PROYECT
+name: 🔁 SCRUM PROJECT
 
 on:
-  issues:
+  pull_request:
     types: [opened]
 
 jobs:
   scrum:
-    name: 🔁 SCRUM PROYECT
-    uses: Randev-ar/gh-workflows/.github/workflows/scrum.yml@main
+    name: 🔁 SCRUM PROJECT - NEW PULL REQUEST
+    uses: Randev-ar/gh-workflows/.github/workflows/add_issue_to_project.yml@main
     secrets:
       TEAM_PROJECT_URL: ${{ secrets.TEAM_PROJECT_URL }}
       ADD_TO_PROJECT_PAT: ${{ secrets.ADD_TO_PROJECT_PAT }}

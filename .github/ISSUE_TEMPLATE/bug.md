@@ -11,10 +11,10 @@ assignees: ''
 
 
 **Pasos para reproducir**
-1. Go to 
+1. Ir a
 2. Click on 
-3. Scroll down to 
-4. See error
+3. Scroll hasta
+4. Ver error
 
 **Respuesta Esperada**
 Descripción detallada de lo que se espera que suceda 

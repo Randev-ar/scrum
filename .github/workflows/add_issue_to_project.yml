@@ -1,0 +1,25 @@
+name: 📝 Adding Issue to Project
+
+on:
+  workflow_call:
+    secrets:
+      TEAM_PROJECT_URL:
+        description: "URL del tablero de Github del equipo"
+        required: true
+      ADD_TO_PROJECT_PAT:
+        description: "Token de generación"
+        required: true
+
+jobs:
+  addIssueToProject:
+    name: 📝 Adding Issue to Project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v0.3.0
+        with:
+          project-url: ${{ secrets.TEAM_PROJECT_URL }}
+          # ADD_TO_PROJECT_PAT -> Token de generación.
+          # https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: impedimento, bloqueo
+          label-operator: NOT
