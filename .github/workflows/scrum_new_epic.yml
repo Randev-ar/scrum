@@ -1,4 +1,4 @@
-name: 🔁 SCRUM PROYECT
+name: 🔁 SCRUM PROJECT
 
 on:
   workflow_call:
@@ -11,16 +11,9 @@ on:
         required: true
 
 jobs:
-  addIssueToProject:
-    name: 📝 Adding Issue to Project
-    uses: ./.github/workflows/add_issue_to_project.yml
-    secrets:
-      TEAM_PROJECT_URL: ${{ secrets.TEAM_PROJECT_URL }}
-      ADD_TO_PROJECT_PAT: ${{ secrets.ADD_TO_PROJECT_PAT }}
-
-  createUserStory:
+  createEpic:
     name: 🗄 Creating Epic
-    if: contains( github.event.issue.labels.*.name, 'milestone') || contains( github.event.issue.labels.*.name, 'US') || contains( github.event.issue.title, '[US]')
+    if: contains( github.event.issue.labels.*.name, 'milestone') || contains( github.event.issue.labels.*.name, 'milestone') || contains( github.event.issue.title, '[Epic]')
     uses: ./.github/workflows/create_milestone_from_issue.yml
     secrets:
       TEAM_PROJECT_URL: ${{ secrets.TEAM_PROJECT_URL }}
@@ -30,7 +23,7 @@ jobs:
     # Asignar issue de milestone al milestone creado
     name: ✔ Add issue to Epic
     if: contains(github.event.issue.labels.*.name, 'milestone')
-    needs: createUserStory
+    needs: createEpic
     runs-on: ubuntu-latest
     steps:
       - uses: guguducken/milestone-add-action@v0.0.1
