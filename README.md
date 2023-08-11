@@ -19,7 +19,7 @@ Tambien se incluiran templates para crear:
 
 Los templates ya estan configurados para que ejecuten automaticamente los workflows
 
-Tambien se podra encontrar documentacion referida a la metodologia dentro de la carpeta `docs/` y en la [Wiki]() del repositorio
+Tambien se podra encontrar documentacion referida a la metodologia dentro de la carpeta `docs/` y en la [Wiki](https://github.com/Randev-ar/scrum/wiki) del repositorio
 
 ## Links de interés
 
