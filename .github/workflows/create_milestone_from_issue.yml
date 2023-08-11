@@ -1,0 +1,35 @@
+name: 🗄 Creating Millestone from Issue
+
+on:
+  workflow_call:
+    secrets:
+      TEAM_PROJECT_URL:
+        description: "URL del tablero de Github del equipo"
+        required: true
+      ADD_TO_PROJECT_PAT:
+        description: "Token de generación"
+        required: true
+
+jobs:
+  createMilestone:
+    name: 🗄 Creating Milestone
+    runs-on: ubuntu-latest
+    steps:
+      - name: Milestone Actions
+        id: createmilestone
+        uses: kyoyadmoon/milestone-actions@v1.0.0
+        with:
+          title: "${{ github.event.issue.title }}"
+          description: "${{ github.event.issue.body }}"
+          # due_on: # An optional timestamp for due date of the milestone
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: echo Milestone number
+        run: echo ${{ steps.createmilestone.outputs.number }}
+
+      - name: echo Milestone id
+        run: echo ${{ steps.createmilestone.outputs.id }}
+
+      - name: echo Milestone html_url
+        run: echo ${{ steps.createmilestone.outputs.html_url }}
